@@ -1,13 +1,16 @@
 import java.util.Arrays;
 
+/**
+ * 归并排序
+ */
 public class Merge {
 
   public static void main(String[] args) {
     int[] data = {4, 1, 1, 3, 2, 5, 0};
-    System.out.println("排序后：" + Arrays.toString(sortBySelect(data)));
+    System.out.println("排序后：" + Arrays.toString(sortByMerge(data)));
   }
 
-  private static int[] sortBySelect(int[] data) {
+  private static int[] sortByMerge(int[] data) {
     // gap为分解的数组大小，归并后的数组自然是2 * gap
     for (int gap = 1; gap < data.length; gap *= 2) {
       // 归并后多少组
@@ -24,7 +27,7 @@ public class Merge {
     return data;
   }
 
-  public static void merge(int[] data, int gap, int start, int size) {
+  private static void merge(int[] data, int gap, int start, int size) {
     if (size == 0 || size == 1) return;
     // 临时归并数组
     int[] temp = new int[size];
